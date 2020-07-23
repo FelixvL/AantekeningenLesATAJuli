@@ -1,49 +1,45 @@
 class Demo {
 	public static void main(String[] args) {
-		new Kassa().starten();
+		Overschrijving ov = new Overschrijving();
+//		ov.bedrag = -50;
+		ov.setBedrag(-75);
+		ov.uitvoeren();
+		ov.uitvoeren();
+		ov.uitvoeren();
+		ov.uitvoeren();
 	}
 }
-class Kassa{
-	Attractie a = new BotsAuto();
-	Attractie ladd = new LadderKlimmen();
+
+
+class Overschrijving{
+	private int bedrag;
 	
-	void starten() {
-		
-		a.draaien();
-		ladd.draaien();
-		ladd.draaien();
-		ladd.draaien();
-		ladd.draaien();
-		
-		BelastingInspecteur bi = new BelastingInspecteur();
-		bi.belastingInnen(  (LadderKlimmen)ladd    );
+	public void setBedrag(int hoogte) {
+		if(hoogte < 0) {
+			System.out.println("dit gaat niet door, we bellen de politie");
+		}else {
+			bedrag = hoogte;
+		}
 	}
-}
-
-class BelastingInspecteur{
-	void belastingInnen(GokAttractie g) {
-		g.betalen();
+	
+	void uitvoeren() {
+		System.out.println("Bij mij gaat er "+bedrag+" af en bij jou komt er "+bedrag+" bij");
 	}
 }
 
 
-class LadderKlimmen extends Attractie implements GokAttractie{
-	public void betalen() {
-		System.out.println("Ik betaal 50 % van " + prijs + " keer mijn bezoeken" +aantalKeerBezocht);
-	}
-}
 
-class Attractie{
-	int prijs;
-	int aantalKeerBezocht;
-	void draaien() {
-		prijs += 220;
-		aantalKeerBezocht++;
-	}
-}
 
-class BotsAuto extends Attractie{}
 
-interface GokAttractie{
-	void betalen();
-}
+
+
+// Design Pattern
+
+// eigenschappen   -> effect
+
+// Encapsulation
+
+//	maakt field private, maak een publieke methode die het veld instelt						--> ik wil controle over mijn velden
+
+
+// Strategy Template Factory
