@@ -1,38 +1,49 @@
-import java.util.Scanner;
-
 class Demo {
 	public static void main(String[] args) {
-		Chaffeur c = new Chaffeur();
-		c.aanhetwerkgaan(   new Voertuig()    );
-		c.aanhetwerkgaan(   new Paard()    );
-	//	c.aanhetwerkgaan(   new Kast()    ); //wordt niet geaccepteerd
+		new Kassa().starten();
 	}
 }
-class Pet{}
-class Chaffeur{
-	Pet pet;  // fields
-	void aanhetwerkgaan(Bestuurbaar b) {
-		b.besturen();
+class Kassa{
+	Attractie a = new BotsAuto();
+	Attractie ladd = new LadderKlimmen();
+	
+	void starten() {
+		
+		a.draaien();
+		ladd.draaien();
+		ladd.draaien();
+		ladd.draaien();
+		ladd.draaien();
+		
+		BelastingInspecteur bi = new BelastingInspecteur();
+		bi.belastingInnen(  (LadderKlimmen)ladd    );
 	}
 }
-interface Bestuurbaar{
-	void besturen();
-}
-class Voertuig implements Bestuurbaar{
-	public void besturen() {
-		System.out.println("Besturen in Voertuig");
+
+class BelastingInspecteur{
+	void belastingInnen(GokAttractie g) {
+		g.betalen();
 	}
 }
-class Kast{}
-class Dier {}
-class Paard extends Dier implements Bestuurbaar{
-	public void besturen() {
-		System.out.println("Besturen in Paard");
+
+
+class LadderKlimmen extends Attractie implements GokAttractie{
+	public void betalen() {
+		System.out.println("Ik betaal 50 % van " + prijs + " keer mijn bezoeken" +aantalKeerBezocht);
 	}
 }
-class Koe extends Dier{}
-class Computer implements Bestuurbaar{
-	public void besturen() {
-		System.out.println("Besturen in Computer");
+
+class Attractie{
+	int prijs;
+	int aantalKeerBezocht;
+	void draaien() {
+		prijs += 220;
+		aantalKeerBezocht++;
 	}
+}
+
+class BotsAuto extends Attractie{}
+
+interface GokAttractie{
+	void betalen();
 }
