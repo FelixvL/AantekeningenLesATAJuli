@@ -1,53 +1,37 @@
-class Demo {   // has a relatie
+class Demo {   // arrays
 	public static void main(String[] args) {
-		Supermarkt supermarkt = new Supermarkt();
+		int[] getallen ;
+		int[] getallen2 = {4,3,7,88,24,99, 9};
 		
-		supermarkt.hetProduct =  new Product("Kaas", 500);
-		Klant klant = new Klant();
-		klant.dinero = 900;
-		klant.naam = "Piet";
+		Ticket[] tickets;
+		Ticket[] tickets2 = { new Ticket(), new Ticket(), new Ticket() };
 		
-		System.out.println(klant.dinero);
-		// goed aanroepen
-		supermarkt.verkopen(klant);
-		supermarkt.verkopen(klant);
-		System.out.println(klant.dinero);
-		System.out.println("=====================");
-		Klant klant2 = new Klant();
-		klant2.dinero = 1900;
-		klant2.naam = "Johan";
-		supermarkt.verkopen(klant2);
-		supermarkt.verkopen(klant2);
-		System.out.println(klant2.dinero);
+		String[] woorden;
+		String[] woorden2 = {"maan","zon","ruimte"};
+		
+		getallen = new int[7];  // altijd weten hoe lang ze zijn
+		tickets = new Ticket[6];
+		woorden = new String[6];
+		
+		System.out.println(    getallen[3]  );
+		System.out.println(    tickets[3]  );   // dit mag
+//		System.out.println(    tickets[3].prijs  ); // dit is null pointer
+		System.out.println(    woorden[3]  );
+		
+		getallen[3] = 5;
+		tickets[3] = new Ticket();
+		woorden[3] = "Goedeavond";
+		
+		System.out.println(    getallen[3]  );
+		System.out.println(    tickets[3].prijs  );
+		System.out.println(    woorden[3]  );
+		
+		
 	}	
 }
 
-class Klant{
-	String naam;
-	int dinero;
+
+class Ticket{
+	int prijs =38;
 }
 
-class Supermarkt{
-	Product hetProduct;
-	void verkopen(Klant klant) {
-		System.out.println("Welkom "+ klant.naam);
-		System.out.println("Wij verkopen " + hetProduct.naamf );
-		if(klant.dinero >= hetProduct.prijsf) {			
-			klant.dinero -= hetProduct.prijsf;
-			System.out.println("Bedankt voor uw aanschaf");
-		}else {
-			System.out.println("Pak de dief "+klant.naam);
-		}
-		System.out.println("");
-	}
-	
-}
-
-class Product{
-	String naamf;
-	int prijsf;	
-	Product(String naam , int prijs){
-		naamf = naam;
-		prijsf = prijs;
-	}
-}
