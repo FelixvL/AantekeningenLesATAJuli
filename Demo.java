@@ -1,42 +1,34 @@
-class Demo {   // instantieren
+class Demo {   // constructor
 	public static void main(String[] args) {
-		System.out.println("hoi");
-		//Laptop laptop; // variable   // Declareren 1 x
-		
-		Laptop laptop = new Laptop();
-		laptop.prijs = 25;
-		
-		Laptop laptop2 = new Laptop();
-		laptop2.prijs = 45;
-		
-		System.out.println(">>"+ laptop.prijs);
-		
-		// laptop van 45 euro wil ik 2000 gram laten wegen
-		laptop2.gewicht = 2000;		
-		laptop.gewicht = 1500;
-		
-		laptop2.opstarten();
+		Laptop laptop = new Laptop(70, 2300);
 		laptop.opstarten();
+		Auto auto = new Auto();
+		auto.rijden(50);
 		
 	}
 	
 }
 
 class Laptop{
-	String ToEtSeNbOrD;
-	String beeldscherm;
 	int prijs;
 	int gewicht;
+	
+	Laptop(int Prijs, int gewichtP){
+		prijs = Prijs;
+		gewicht = gewichtP;
+	}
 	
 	void opstarten() {
 		System.out.println("Opstarten");
 		System.out.println("mijn prijs : "+ prijs);
 		System.out.println("mijn gewicht : "+ gewicht);
 	}
-	
 }
 class Auto{
 	void opstarten() {
 		System.out.println("opstarten in auto");
+	}
+	void rijden(int snelheid) {
+		System.out.println("Ik ben aan het rijden met snelheid : " + snelheid);
 	}
 }
