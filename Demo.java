@@ -1,37 +1,19 @@
 class Demo {   // arrays
 	public static void main(String[] args) {
-		int[] getallen ;
-		int[] getallen2 = {4,3,7,88,24,99, 9};
+		int[] getallen2 = {4,3,7,88,24,99, 9,7,99};
 		
-		Ticket[] tickets;
-		Ticket[] tickets2 = { new Ticket(), new Ticket(), new Ticket() };
+		for(int x = 0 ; x < 10 ; x++) {
+			System.out.println("hoi");
+			System.out.println(x);
+			
+		}
+
 		
-		String[] woorden;
-		String[] woorden2 = {"maan","zon","ruimte"};
-		
-		getallen = new int[7];  // altijd weten hoe lang ze zijn
-		tickets = new Ticket[6];
-		woorden = new String[6];
-		
-		System.out.println(    getallen[3]  );
-		System.out.println(    tickets[3]  );   // dit mag
-//		System.out.println(    tickets[3].prijs  ); // dit is null pointer
-		System.out.println(    woorden[3]  );
-		
-		getallen[3] = 5;
-		tickets[3] = new Ticket();
-		woorden[3] = "Goedeavond";
-		
-		System.out.println(    getallen[3]  );
-		System.out.println(    tickets[3].prijs  );
-		System.out.println(    woorden[3]  );
+		for(int y = 0 ; y < getallen2.length ; y++) {
+			System.out.println("doei");
+			System.out.println(getallen2[y]);
+		}
 		
 		
 	}	
 }
-
-
-class Ticket{
-	int prijs =38;
-}
-
